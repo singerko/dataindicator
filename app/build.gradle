@@ -1,0 +1,103 @@
+// app/build.gradle
+// Hlavná Gradle konfigurácia pre Android modul.
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+}
+
+android {
+    compileSdk 35
+    namespace 'sk.dataindicator'
+
+    defaultConfig {
+        applicationId "sk.dataindicator"
+        minSdk 26
+        targetSdk 35
+        versionCode 15
+        versionName "1.14"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Optimalizácie pre Play Store
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled false
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+        }
+
+        release {
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled true
+            debuggable false
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // Optimalizácie pre Play Store
+            crunchPngs true
+
+            // Play Console optimalizácie
+            ndk {
+                debugSymbolLevel 'SYMBOL_TABLE'
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+
+        // Kotlin optimalizácie
+        freeCompilerArgs += [
+            '-opt-in=kotlin.RequiresOptIn'
+        ]
+    }
+
+    // Bundle konfigurácia - VYPNUTÉ pre rýchlejší build
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = false
+        }
+        abi {
+            enableSplit = false
+        }
+    }
+
+    // Lint konfigurácia
+    lint {
+        checkReleaseBuilds true
+        abortOnError true
+        warningsAsErrors false
+    }
+
+    // Packaging options
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/NOTICE', 'META-INF/NOTICE.txt']
+        }
+    }
+}
+
+dependencies {
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.material)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.espresso.core)
+}

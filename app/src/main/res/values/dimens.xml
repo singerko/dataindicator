@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Rozmery a veľkosti UI prvkov.
+-->
+<resources>
+    <!-- Výška indikátora -->
+    <dimen name="indicator_height">4dp</dimen>
+    
+    <!-- Základné rozmery -->
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+    <dimen name="button_margin">12dp</dimen>
+</resources>

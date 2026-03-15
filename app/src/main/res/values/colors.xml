@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Definícia farieb používaných v UI.
+-->
+<resources>
+    <!-- Farby pre indikátor -->
+    <color name="wifi">#4CAF50</color>
+    <color name="mobile_data">#F44336</color>
+    <color name="no_internet">#9E9E9E</color>
+    
+    <!-- Základné farby aplikácie -->
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#FF5722</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="colorPrimaryLight">#BBDEFB</color>
+    <color name="colorSecondary">#757575</color>
+</resources>

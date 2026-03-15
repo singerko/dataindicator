@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Slovenské preklady textov aplikácie.
+-->
+<resources>
+    <string name="app_name">Data Indicator</string>
+    <string name="start_monitoring">Spustiť monitorovanie</string>
+    <string name="stop_monitoring">Zastaviť monitorovanie</string>
+    <string name="status_checking">Kontrolujem povolenia...</string>
+    <string name="status_ready">Pripravené na spustenie</string>
+    <string name="status_running">Monitorovanie beží</string>
+    <string name="app_version_format">Verzia %1$s (%2$d)</string>
+    <string name="permission_overlay_needed">Potrebné povolenie pre overlay</string>
+    <string name="permission_notification_needed">Potrebné povolenie pre notifikácie</string>
+    <string name="notification_title">Data Indicator</string>
+    <string name="notification_text">Zobrazuje typ internetového pripojenia</string>
+    <string name="notification_channel_name">Monitoring siete</string>
+    
+    <!-- Nastavenia -->
+    <string name="settings_title">Nastavenia</string>
+    <string name="colors_section">Farby</string>
+    <string name="dimensions_section">Rozmery</string>
+    <string name="alignment_section">Zarovnanie</string>
+    
+    <!-- Alignment options -->
+    <string-array name="alignment_options">
+        <item>Vľavo</item>
+        <item>Na stred</item>
+        <item>Vpravo</item>
+    </string-array>
+    
+    <!-- Additional strings -->
+    <string name="settings_saved">Nastavenia uložené</string>
+    <string name="settings_reset">Nastavenia resetované</string>
+    <string name="app_config_title">Konfigurácia aplikácií</string>
+    <string name="select_apps_overlay">Vybrať aplikácie pre overlay</string>
+    <string name="clear_all_apps">Vymazať všetky</string>
+    <string name="all_apps_label">Všetky</string>
+    <string name="all_apps_selected">Overlay sa zobrazuje nad všetkými aplikáciami</string>
+    <string name="selected_apps_count">Overlay sa zobrazuje nad %1$d aplikáciami</string>
+    <string name="all_apps_removed">Všetky aplikácie odstránené</string>
+    <string name="always_on_overlay_info">Overlay sa v režime always-on zobrazuje nad všetkými aplikáciami.</string>
+    
+    <!-- Language settings -->
+    <string name="language_section">Jazyk</string>
+    <string name="language_selection">Výber jazyka:</string>
+
+    <!-- Hlavná obrazovka -->
+    <string name="settings_button">Nastavenia</string>
+    <string name="app_config_button">Konfigurácia aplikácií</string>
+    <string name="indicator_legend">Farebné indikátory:\n🟢 WiFi\n🔴 Mobilné dáta\n⚫ Bez internetu\n\nV nastaveniach môžete zmeniť farby, veľkosť a pozíciu pásika.</string>
+
+    <!-- Konfigurácia aplikácií -->
+    <string name="auto_start_after_reboot">Auto-štart po reštarte</string>
+    <string name="usage_stats_permission">Povoliť sledovanie aplikácií</string>
+    <string name="overlay_config_section">Konfigurácia overlay</string>
+    <string name="overlay_config_help">Indikátor sa v režime always-on zobrazuje nad všetkými aplikáciami.</string>
+
+    <!-- Nastavenia -->
+    <string name="preview_label">Náhľad:</string>
+    <string name="colors_label">Farby:</string>
+    <string name="wifi_label">WiFi:</string>
+    <string name="mobile_data_label">Mobilné dáta:</string>
+    <string name="no_internet_label">Bez internetu:</string>
+    <string name="dimensions_label">Rozmery:</string>
+    <string name="height_label">Výška:</string>
+    <string name="width_label">Šírka:</string>
+    <string name="alignment_label">Zarovnanie:</string>
+    <string name="position_label">Pozícia:</string>
+    <string name="save_button">Uložiť</string>
+    <string name="reset_button">Reset</string>
+    <string name="test_button">Test pásika (5s)</string>
+    <string name="test_indicator_toast">Test pásika na 5 sekúnd</string>
+    <string name="add_home_shortcut_title">Pridať na domovskú obrazovku</string>
+    <string name="add_home_shortcut_message">Chcete pridať Data Indicator medzi ikony na domovskej obrazovke?</string>
+    <string name="add_home_shortcut_confirm">Pridať</string>
+    <string name="add_home_shortcut_later">Neskôr</string>
+    
+    <!-- Language options -->
+    <string-array name="language_options">
+        <item>English</item>
+        <item>Slovenčina</item>
+    </string-array>
+</resources>

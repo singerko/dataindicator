@@ -1,0 +1,80 @@
+# DataIndicator
+
+Android aplikácia na trvalé zobrazenie tenkého farebného indikátora siete nad ostatnými aplikáciami.
+
+## 🚀 Kľúčové Vlastnosti
+
+* **Always-on overlay:** Indikátor je viditeľný aj nad inými aplikáciami.
+* **Stav pripojenia v reálnom čase:** Wi‑Fi / mobilné dáta / bez internetu.
+* **Prispôsobenie vzhľadu:** Farby, výška, šírka a zarovnanie pásika.
+* **Autoštart po boote:** Aplikácia vie obnoviť monitorovanie po reštarte zariadenia.
+* **Jednoduché nasadenie:** Build, podpis a inštalácia cez `Makefile`.
+
+## 📱 Ukážky
+
+| Hlavná obrazovka | Konfigurácia | Launcher |
+| :---: | :---: | :---: |
+| ![Main Screen](docs/screenshots/main-screen.png) | ![App Config](docs/screenshots/app-config.png) | ![Launcher](docs/screenshots/launcher-home.png) |
+
+| VLC Fullscreen 1 | VLC Fullscreen 2 | Vertikálne video |
+| :---: | :---: | :---: |
+| ![VLC Overlay 1](docs/screenshots/vlc-overlay-1.png) | ![VLC Overlay 2](docs/screenshots/vlc-overlay-2.png) | ![VLC Overlay Vertical](docs/screenshots/vlc-overlay-vertical.png) |
+
+## 🛠️ Technológie
+
+* **Android Native:** Kotlin, Android SDK
+* **Build System:** Gradle + Makefile
+* **Kontajnerizovaný build:** Podman
+* **Deploy:** ADB
+
+## 📦 Inštalácia a Spustenie
+
+### Prerekvizity
+* Linux (testované)
+* Podman
+* Make
+* Android SDK + ADB
+* Android zariadenie s povoleným USB ladením (pre deploy)
+
+### Príkazy
+
+1. **Build APK**
+```bash
+make rebuild-apk
+```
+
+2. **Podpis APK**
+```bash
+make sign-apk
+```
+
+3. **Inštalácia do zariadenia**
+```bash
+make install-apk
+```
+
+4. **Kompletný deploy (build + sign + install)**
+```bash
+make deploy
+```
+
+## 🔐 Povolenia
+
+Aplikácia používa:
+* `SYSTEM_ALERT_WINDOW`
+* `FOREGROUND_SERVICE`
+* `FOREGROUND_SERVICE_SPECIAL_USE`
+* `ACCESS_NETWORK_STATE`
+* `INTERNET`
+* `POST_NOTIFICATIONS`
+* `RECEIVE_BOOT_COMPLETED`
+
+## 🤖 Poznámka o AI
+
+Tento projekt bol vygenerovaný a priebežne upravovaný pomocou AI.
+
+## 📝 Licencia
+
+Projekt je voľne použiteľný.
+
+Kód môže ktokoľvek používať, upravovať a ďalej šíriť bez obmedzení.

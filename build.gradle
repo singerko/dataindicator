@@ -1,0 +1,6 @@
+// Root build.gradle
+// Definuje pluginy a ich verzie pre celý projekt.
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+}

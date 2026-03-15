@@ -1,0 +1,71 @@
+# Android / Gradle build outputs
+.gradle/
+**/build/
+captures/
+externalNativeBuild/
+.cxx/
+local.properties
+
+CLAUDE.md
+
+# Android artifacts
+*.apk
+*.apks
+*.aab
+*.aabx
+*.ap_
+*.dex
+*.class
+*.so
+*.hprof
+mapping.txt
+output-metadata.json
+
+# Logs / reports
+*.log
+build.log
+hs_err_pid*
+replay_pid*
+
+# Signing keys and sensitive config
+*.keystore
+*.jks
+*.p12
+*.pem
+*.key
+keystore.properties
+signing.properties
+google-services.json
+*.mobileprovision
+
+# Environment / secrets
+.env
+.env.*
+*.secret
+*.secrets
+
+# IDE / editor
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# iOS
+ios/build/
+ios/DerivedData/
+
+# Java / Maven
+target/
+
+# Python cache (for utility scripts)
+__pycache__/
+*.pyc
+
+# Local publishing notes
+PLAY_CONSOLE.md

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  pom.xml
+  Maven konfigurácia (alternatívny build) pre projekt.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>sk.dataindicator</groupId>
+    <artifactId>connection-indicator</artifactId>
+    <version>1.0.0</version>
+    <packaging>apk</packaging>
+    <name>Connection Indicator</name>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <kotlin.version>1.9.22</kotlin.version>
+        <android.version>34</android.version>
+        <android.platform>android-34</android.platform>
+        <android.maven.version>4.6.0</android.maven.version>
+    </properties>
+    
+    <dependencies>
+        <!-- Android SDK -->
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>4.1.1.4</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- Kotlin -->
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <finalName>${project.artifactId}</finalName>
+        
+        <plugins>
+            <!-- Kotlin Plugin -->
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jvmTarget>17</jvmTarget>
+                </configuration>
+            </plugin>
+            
+            <!-- Android Maven Plugin -->
+            <plugin>
+                <groupId>com.simpligility.maven.plugins</groupId>
+                <artifactId>android-maven-plugin</artifactId>
+                <version>${android.maven.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <sdk>
+                        <path>/opt/android-sdk</path>
+                        <platform>${android.version}</platform>
+                    </sdk>
+                    <androidManifestFile>${project.basedir}/src/main/AndroidManifest.xml</androidManifestFile>
+                    <resourceDirectory>${project.basedir}/src/main/res</resourceDirectory>
+                    <assetsDirectory>${project.basedir}/src/main/assets</assetsDirectory>
+                    <nativeLibrariesDirectory>${project.basedir}/src/main/jniLibs</nativeLibrariesDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

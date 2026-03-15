@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Popredie ikony aplikácie.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Background circle -->
+    <path
+        android:fillColor="#2196F3"
+        android:pathData="M54,54m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"/>
+    
+    <!-- WiFi icon -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,32C43.5,32 33.6,35.6 25.8,42.2L29.4,45.8C36.2,40.2 44.8,37 54,37C63.2,37 71.8,40.2 78.6,45.8L82.2,42.2C74.4,35.6 64.5,32 54,32Z"/>
+    
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,44C47.4,44 41.2,46.4 36.4,50.4L40,54C43.8,50.8 48.7,49 54,49C59.3,49 64.2,50.8 68,54L71.6,50.4C66.8,46.4 60.6,44 54,44Z"/>
+    
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,56C50.7,56 47.6,57.3 45.2,59.4L54,68.2L62.8,59.4C60.4,57.3 57.3,56 54,56Z"/>
+    
+    <!-- Signal bars (path elements instead of rect) -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M34,66L38,66L38,74L34,74Z"/>
+    
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M40,62L44,62L44,74L40,74Z"/>
+    
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M46,58L50,58L50,74L46,74Z"/>
+    
+    <path
+        android:fillColor="#F44336"
+        android:pathData="M64,66L68,66L68,74L64,74Z"/>
+    
+    <path
+        android:fillColor="#F44336"
+        android:pathData="M70,62L74,62L74,74L70,74Z"/>
+    
+</vector>
