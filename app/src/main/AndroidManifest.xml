@@ -27,16 +27,30 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
-        <!-- Hlavná aktivita -->
+        <!-- Splash screen – spúšťa sa ako prvá -->
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true"
-            android:launchMode="singleTop">
+            android:noHistory="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Hlavná aktivita -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
+
+        <!-- O aplikácii aktivita -->
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false"
+            android:label="@string/about_title"
+            android:parentActivityName=".MainActivity" />
 
         <!-- Nastavenia aktivita -->
         <activity

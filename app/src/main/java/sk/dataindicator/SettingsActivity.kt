@@ -43,6 +43,7 @@ class SettingsActivity : BaseActivity() {
     private lateinit var languageSpinner: Spinner
     
     private lateinit var previewIndicator: View
+    private lateinit var autoStartSwitch: Switch
     
     /**
      * Inicializuje obrazovku a načíta uložené nastavenia.
@@ -50,6 +51,7 @@ class SettingsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+        setupBottomNavigation()
         
         configManager = ConfigManager.getInstance(this)
         
@@ -89,6 +91,13 @@ class SettingsActivity : BaseActivity() {
         
         // Preview
         previewIndicator = findViewById(R.id.previewIndicator)
+
+        // Auto-štart
+        autoStartSwitch = findViewById(R.id.autoStartSwitch)
+        autoStartSwitch.isChecked = configManager.isAutoStartEnabled
+        autoStartSwitch.setOnCheckedChangeListener { _, isChecked ->
+            configManager.isAutoStartEnabled = isChecked
+        }
         
         // Spinners setup
         setupAlignmentSpinner()
@@ -97,7 +106,6 @@ class SettingsActivity : BaseActivity() {
         // Tlačidlá
         findViewById<Button>(R.id.saveButton).setOnClickListener { saveSettings() }
         findViewById<Button>(R.id.resetButton).setOnClickListener { resetSettings() }
-        findViewById<Button>(R.id.testButton).setOnClickListener { testIndicator() }
     }
     
     /**
@@ -298,26 +306,6 @@ class SettingsActivity : BaseActivity() {
     /**
      * Spustí krátky test indikátora na 5 sekúnd.
      */
-    private fun testIndicator() {
-        saveSettings()
-        
-        // Spustenie test služby na 5 sekúnd
-        val intent = Intent(this, NetworkStateService::class.java).apply {
-            action = NetworkStateService.ACTION_START
-        }
-        startForegroundService(intent)
-        
-        Toast.makeText(this, getString(R.string.test_indicator_toast), Toast.LENGTH_SHORT).show()
-        
-        // Zastavenie po 5 sekundách
-        android.os.Handler(mainLooper).postDelayed({
-            val stopIntent = Intent(this, NetworkStateService::class.java).apply {
-                action = NetworkStateService.ACTION_STOP
-            }
-            startService(stopIntent)
-        }, 5000)
-    }
-    
     /**
      * Reštartuje službu, aby sa nové nastavenia prejavili.
      */
