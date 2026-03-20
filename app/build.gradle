@@ -13,8 +13,8 @@ android {
         applicationId "sk.dataindicator"
         minSdk 26
         targetSdk 35
-        versionCode 15
-        versionName "1.14"
+        versionCode 28
+        versionName "1.27"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 

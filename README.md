@@ -61,13 +61,13 @@ make deploy
 ## 🔐 Povolenia
 
 Aplikácia používa:
-* `SYSTEM_ALERT_WINDOW`
-* `FOREGROUND_SERVICE`
-* `FOREGROUND_SERVICE_SPECIAL_USE`
-* `ACCESS_NETWORK_STATE`
-* `INTERNET`
-* `POST_NOTIFICATIONS`
-* `RECEIVE_BOOT_COMPLETED`
+* `SYSTEM_ALERT_WINDOW` — kreslenie overlay nad inými aplikáciami
+* `FOREGROUND_SERVICE` — beh ako foreground služba
+* `FOREGROUND_SERVICE_SPECIAL_USE` — kategória špeciálnej foreground služby
+* `ACCESS_NETWORK_STATE` — detekcia typu sieťového pripojenia
+* `INTERNET` — overenie skutočnej dostupnosti internetu
+* `POST_NOTIFICATIONS` — zobrazenie notifikácie foreground služby
+* `RECEIVE_BOOT_COMPLETED` — autoštart po reštarte zariadenia
 
 ## 🤖 Poznámka o AI
 

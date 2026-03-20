@@ -1,82 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Hlavná obrazovka aplikácie (spustenie/zastavenie služby a navigácia).
+  Hlavná obrazovka – moderný dizajn so spodnou navigačnou lištou.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/padding_large"
-    android:gravity="center"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginBottom="@dimen/padding_medium" />
+    <!-- Hlavný obsah (zaberá zostatok priestoru nad nav lištou) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/padding_large">
 
-    <TextView
-        android:id="@+id/versionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="13sp"
-        android:textColor="@color/colorSecondary"
-        android:layout_marginBottom="@dimen/padding_small" />
+        <!-- Plné logo SingerLand -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_data_indicator"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:maxHeight="140dp"
+            android:contentDescription="@string/app_name"
+            android:layout_marginBottom="@dimen/padding_small" />
 
-    <TextView
-        android:id="@+id/statusText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/status_checking"
-        android:textSize="16sp"
-        android:layout_marginBottom="@dimen/padding_large" />
+        <!-- Verzia -->
+        <TextView
+            android:id="@+id/versionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/colorSecondary"
+            android:layout_marginBottom="@dimen/padding_large" />
 
-    <Button
-        android:id="@+id/startButton"
+        <!-- Stavová + prepínacia karta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium"
+            android:layout_marginBottom="@dimen/padding_large"
+            android:background="@drawable/rounded_background">
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/status_checking"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:textColor="@color/colorSecondary"
+                android:layout_marginBottom="@dimen/padding_medium" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/monitoring_label"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/monitoringSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="false" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Legenda -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/indicator_legend"
+            android:textSize="13sp"
+            android:textColor="@color/colorSecondary"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <!-- Spodná navigačná lišta -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/start_monitoring"
-        style="@style/ButtonStyle"
-        android:enabled="false" />
-
-    <Button
-        android:id="@+id/stopButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/stop_monitoring"
-        style="@style/ButtonStyle"
-        android:enabled="false" />
-
-    <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/settings_button"
-        android:background="?android:attr/selectableItemBackground"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginTop="@dimen/padding_small" />
-
-    <Button
-        android:id="@+id/appConfigButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/app_config_button"
-        android:background="?android:attr/selectableItemBackground"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginTop="@dimen/padding_small" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/indicator_legend"
-        android:textSize="14sp"
-        android:layout_marginTop="@dimen/padding_large"
-        android:gravity="center" />
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:labelVisibilityMode="labeled" />
 
 </LinearLayout>
