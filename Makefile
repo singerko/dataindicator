@@ -5,6 +5,7 @@
 DOCKER_IMAGE = android-gradle-builder
 DOCKER_FILE = gradle.Dockerfile
 APK_PATH = app/build/outputs/apk/release/app-release-unsigned.apk
+AAB_PATH = app/build/outputs/bundle/release/app-release.aab
 BUILD_DIR = app/build
 
 # Farby pre výstup
@@ -78,6 +79,31 @@ rebuild-apk: version build-docker
 	@podman run --rm -v "$$(pwd):/app" -w "/app" $(DOCKER_IMAGE) ./gradlew :app:assembleDebug
 	@cp app/build/outputs/apk/debug/app-debug.apk ./DataIndicator.apk
 	@echo -e "$(GREEN)Build complete! APK is at ./DataIndicator.apk$(NC)"
+
+# Build AAB (Android App Bundle) pre Google Play
+.PHONY: build-aab
+build-aab: version build-docker
+	@echo -e "$(BLUE)📦 Buildovanie AAB v kontajneri...$(NC)"
+	@podman run --rm -v "$$(pwd):/app" -w "/app" $(DOCKER_IMAGE) ./gradlew :app:bundleRelease
+	@if [ -f "$(AAB_PATH)" ]; then \
+		cp $(AAB_PATH) ./DataIndicator.aab; \
+		echo -e "$(GREEN)✅ AAB úspešne vytvorené$(NC)"; \
+		echo -e "$(BLUE)📁 Súbor: ./DataIndicator.aab$(NC)"; \
+		echo -e "$(BLUE)📏 Veľkosť: $$(du -h ./DataIndicator.aab | cut -f1)$(NC)"; \
+	else \
+		echo -e "$(RED)❌ Chyba: AAB súbor nenájdený$(NC)"; \
+		exit 1; \
+	fi
+
+# Podpísanie AAB pre Google Play
+.PHONY: sign-aab
+sign-aab:
+	@../android.sign.aab.sh DataIndicator.aab DataIndicator.sign.aab
+
+# Deploy AAB: build + sign
+.PHONY: deploy-aab
+deploy-aab: build-aab sign-aab
+	@echo -e "$(GREEN)🎉 AAB pripravené pre Google Play: ./DataIndicator.sign.aab$(NC)"
 
 # Podpísanie APK pre deploy flow
 .PHONY: sign-apk
@@ -201,6 +227,11 @@ help:
 	@echo -e "$(GREEN)Docker operácie:$(NC)"
 	@echo -e "$(YELLOW)  make build-docker$(NC)  - Zbuilduje Docker kontajner"
 	@echo -e "$(YELLOW)  make rebuild-docker$(NC) - Obnová Docker kontajnera"
+	@echo
+	@echo -e "$(GREEN)AAB pre Google Play:$(NC)"
+	@echo -e "$(YELLOW)  make build-aab$(NC)     - Zbuilduje AAB pre Google Play"
+	@echo -e "$(YELLOW)  make sign-aab$(NC)      - Podpíše existujúce AAB"
+	@echo -e "$(YELLOW)  make deploy-aab$(NC)    - Build + sign AAB"
 	@echo
 	@echo -e "$(GREEN)Zariadenie a testovanie:$(NC)"
 	@echo -e "$(YELLOW)  make install$(NC)       - Inštaluje APK na zariadenie"
