@@ -81,4 +81,19 @@
         <item>English</item>
         <item>Slovenčina</item>
     </string-array>
+
+    <!-- O aplikácii -->
+    <string name="about_title">O aplikácii</string>
+    <string name="about_button">O aplikácii</string>
+    <string name="about_description">Vizuálny indikátor typu internetového pripojenia.\n🟢 WiFi  🔴 Mobilné dáta  ⚫ Bez internetu</string>
+
+    <!-- Podpis loga -->
+    <string name="logo_subtitle">data indicator</string>
+
+    <!-- Monitoring prepínač -->
+    <string name="monitoring_label">Monitorovanie</string>
+
+    <!-- Spodná navigácia -->
+    <string name="nav_home">Domov</string>
+    <string name="nav_config">Konfig</string>
 </resources>

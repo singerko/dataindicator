@@ -2,307 +2,338 @@
 <!--
   Obrazovka s nastaveniami indikátora (farby, rozmery, jazyk).
 -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/padding_medium">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="@dimen/padding_medium">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Plné logo SingerLand -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_data_indicator"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:maxHeight="100dp"
+                android:contentDescription="@string/app_name"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="@dimen/padding_medium" />
+
+            <!-- Preview sekcia -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/preview_label"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/padding_small" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:background="#E0E0E0"
+                android:gravity="top"
+                android:layout_marginBottom="@dimen/padding_large">
+
+                <View
+                    android:id="@+id/previewIndicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/wifi" />
+
+            </LinearLayout>
+
+            <!-- Farby sekcia -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/colors_label"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/padding_small" />
+
+            <!-- WiFi farba -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/padding_small">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/wifi_label" />
+
+                <EditText
+                    android:id="@+id/wifiColorEdit"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:hint="#4CAF50"
+                    android:inputType="text"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/wifiColorPreview"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="@dimen/padding_small"
+                    android:background="@color/wifi" />
+
+            </LinearLayout>
+
+            <!-- Mobilné dáta farba -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/padding_small">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/mobile_data_label" />
+
+                <EditText
+                    android:id="@+id/mobileColorEdit"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:hint="#F44336"
+                    android:inputType="text"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/mobileColorPreview"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="@dimen/padding_small"
+                    android:background="@color/mobile_data" />
+
+            </LinearLayout>
+
+            <!-- Bez internetu farba -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/padding_large">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no_internet_label" />
+
+                <EditText
+                    android:id="@+id/noInternetColorEdit"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:hint="#9E9E9E"
+                    android:inputType="text"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/noInternetColorPreview"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="@dimen/padding_small"
+                    android:background="@color/no_internet" />
+
+            </LinearLayout>
+
+            <!-- Rozmery sekcia -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dimensions_label"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/padding_small" />
+
+            <!-- Výška -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/padding_small">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/height_label" />
+
+                <SeekBar
+                    android:id="@+id/heightSlider"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:max="19"
+                    android:progress="3" />
+
+                <TextView
+                    android:id="@+id/heightValue"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="4 dp"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <!-- Šírka -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/padding_large">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/width_label" />
+
+                <SeekBar
+                    android:id="@+id/widthSlider"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:max="19"
+                    android:progress="19" />
+
+                <TextView
+                    android:id="@+id/widthValue"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="100%"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/padding_large">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/position_label" />
+
+                <Spinner
+                    android:id="@+id/alignmentSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/padding_large">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/language_selection" />
+
+                <Spinner
+                    android:id="@+id/languageSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+            <!-- Tlačidlá -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/saveButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/save_button"
+                    android:layout_marginEnd="@dimen/padding_small"
+                    style="@style/ButtonStyle" />
+
+                <Button
+                    android:id="@+id/resetButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/reset_button"
+                    android:layout_marginStart="@dimen/padding_small"
+                    style="@style/ButtonStyle" />
+
+            </LinearLayout>
+
+            <!-- Auto-štart po reštarte -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp"
+                android:layout_marginTop="@dimen/padding_medium"
+                android:background="@drawable/rounded_background">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/auto_start_after_reboot"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/autoStartSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Spodná navigačná lišta -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:labelVisibilityMode="labeled" />
 
-        <!-- Preview sekcia -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/preview_label"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="@dimen/padding_small" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#E0E0E0"
-            android:gravity="top"
-            android:layout_marginBottom="@dimen/padding_large">
-
-            <View
-                android:id="@+id/previewIndicator"
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="@color/wifi" />
-
-        </LinearLayout>
-
-        <!-- Farby sekcia -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/colors_label"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="@dimen/padding_small" />
-
-        <!-- WiFi farba -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="@dimen/padding_small">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/wifi_label" />
-
-            <EditText
-                android:id="@+id/wifiColorEdit"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:hint="#4CAF50"
-                android:inputType="text"
-                android:textSize="14sp" />
-
-            <View
-                android:id="@+id/wifiColorPreview"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="@dimen/padding_small"
-                android:background="@color/wifi" />
-
-        </LinearLayout>
-
-        <!-- Mobilné dáta farba -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="@dimen/padding_small">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/mobile_data_label" />
-
-            <EditText
-                android:id="@+id/mobileColorEdit"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:hint="#F44336"
-                android:inputType="text"
-                android:textSize="14sp" />
-
-            <View
-                android:id="@+id/mobileColorPreview"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="@dimen/padding_small"
-                android:background="@color/mobile_data" />
-
-        </LinearLayout>
-
-        <!-- Bez internetu farba -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="@dimen/padding_large">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/no_internet_label" />
-
-            <EditText
-                android:id="@+id/noInternetColorEdit"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:hint="#9E9E9E"
-                android:inputType="text"
-                android:textSize="14sp" />
-
-            <View
-                android:id="@+id/noInternetColorPreview"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="@dimen/padding_small"
-                android:background="@color/no_internet" />
-
-        </LinearLayout>
-
-        <!-- Rozmery sekcia -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dimensions_label"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="@dimen/padding_small" />
-
-        <!-- Výška -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="@dimen/padding_small">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/height_label" />
-
-            <SeekBar
-                android:id="@+id/heightSlider"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:max="19"
-                android:progress="3" />
-
-            <TextView
-                android:id="@+id/heightValue"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:text="4 dp"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <!-- Šírka -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="@dimen/padding_large">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/width_label" />
-
-            <SeekBar
-                android:id="@+id/widthSlider"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:max="19"
-                android:progress="19" />
-
-            <TextView
-                android:id="@+id/widthValue"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:text="100%"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <!-- Zarovnanie sekcia -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/alignment_label"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="@dimen/padding_small" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="@dimen/padding_large">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/position_label" />
-
-            <Spinner
-                android:id="@+id/alignmentSpinner"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2" />
-
-        </LinearLayout>
-
-        <!-- Jazyk sekcia -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/language_section"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="@dimen/padding_small" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="@dimen/padding_large">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/language_selection" />
-
-            <Spinner
-                android:id="@+id/languageSpinner"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2" />
-
-        </LinearLayout>
-
-        <!-- Tlačidlá -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/saveButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/save_button"
-                android:layout_marginEnd="@dimen/padding_small"
-                style="@style/ButtonStyle" />
-
-            <Button
-                android:id="@+id/resetButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/reset_button"
-                android:layout_marginStart="@dimen/padding_small"
-                style="@style/ButtonStyle" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/testButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/test_button"
-            android:layout_marginTop="@dimen/padding_small"
-            style="@style/ButtonStyle" />
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

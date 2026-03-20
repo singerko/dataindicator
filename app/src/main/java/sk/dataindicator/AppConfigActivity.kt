@@ -26,6 +26,7 @@ class AppConfigActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app_config)
+        setupBottomNavigation()
 
         configManager = ConfigManager.getInstance(this)
 

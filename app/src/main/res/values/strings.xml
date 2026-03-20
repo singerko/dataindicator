@@ -81,4 +81,19 @@
         <item>English</item>
         <item>Slovenčina</item>
     </string-array>
+
+    <!-- About screen -->
+    <string name="about_title">About</string>
+    <string name="about_button">About</string>
+    <string name="about_description">Visual indicator of internet connection type.\n🟢 WiFi  🔴 Mobile data  ⚫ No internet</string>
+
+    <!-- Podpis loga (zodpovedá textu v SVG) -->
+    <string name="logo_subtitle">data indicator</string>
+
+    <!-- Monitoring prepínač -->
+    <string name="monitoring_label">Monitoring</string>
+
+    <!-- Bottom navigation labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_config">Config</string>
 </resources>
