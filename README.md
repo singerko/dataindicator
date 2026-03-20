@@ -1,5 +1,7 @@
 # DataIndicator
 
+Pri cestovaní som potreboval identifikátor, či bežím na WiFi alebo idem na dátach, pretože sa mi viackrát stalo, že v roamingu som očakával, že som na WiFi, ale tá ma odpojila a mobil sa neznateľne prepol na dáta. Farebné označenie nevadí bežnému používaniu mobilu ani pri full screen pozeraní videa. Pokiaľ WiFi pripojenie padne počas pozerania videa, používateľ sa o tom okamžite dozvie.
+
 Android aplikácia na trvalé zobrazenie tenkého farebného indikátora siete nad ostatnými aplikáciami.
 
 ## 🚀 Kľúčové Vlastnosti
