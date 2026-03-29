@@ -16,4 +16,8 @@
     <color name="black">#000000</color>
     <color name="colorPrimaryLight">#BBDEFB</color>
     <color name="colorSecondary">#757575</color>
+
+    <!-- Brand Colors -->
+    <color name="brand_singer">#1a1a18</color>
+    <color name="brand_land">#4a8200</color>
 </resources>
