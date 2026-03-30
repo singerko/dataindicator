@@ -85,7 +85,7 @@
     <!-- O aplikácii -->
     <string name="about_title">O aplikácii</string>
     <string name="about_button">O aplikácii</string>
-    <string name="about_description">Vizuálny indikátor typu internetového pripojenia.\n🟢 WiFi  🔴 Mobilné dáta  ⚫ Bez internetu\n\n© SingerLand od Martina Speváka</string>
+    <string name="about_description">Vizuálny indikátor typu internetového pripojenia.\n🟢 WiFi  🔴 Mobilné dáta  ⚫ Bez internetu\n\n© Martin (singer) Spevák\n\nOpen source šírený pod MIT licenciou\n\nwww.singerland.com\ngithub.com/singerko/dataindicator</string>
 
     <!-- Podpis loga -->
     <string name="logo_subtitle">data indicator</string>
