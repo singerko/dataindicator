@@ -77,6 +77,6 @@ This project was generated and iteratively updated with the help of AI.
 
 ## 📝 License
 
-The project is freely usable.
+This project is open source and released under the **MIT License**.
 
 Anyone may use, modify and redistribute the code without restrictions.

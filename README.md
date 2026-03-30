@@ -77,6 +77,6 @@ Tento projekt bol vygenerovaný a priebežne upravovaný pomocou AI.
 
 ## 📝 Licencia
 
-Projekt je voľne použiteľný.
+Projekt je open source uvoľnený pod **MIT licenciou**.
 
 Kód môže ktokoľvek používať, upravovať a ďalej šíriť bez obmedzení.

@@ -307,10 +307,11 @@ class SettingsActivity : BaseActivity() {
      * Spustí krátky test indikátora na 5 sekúnd.
      */
     /**
-     * Reštartuje službu, aby sa nové nastavenia prejavili.
+     * Reštartuje službu, aby sa nové nastavenia prejavili, ale iba ak už beží.
      */
     private fun restartServiceIfRunning() {
-        // Restart služby ak beží (implementácia závisí od toho, ako sledujeme stav služby)
+        if (!NetworkStateService.isRunning) return
+
         val stopIntent = Intent(this, NetworkStateService::class.java).apply {
             action = NetworkStateService.ACTION_STOP
         }

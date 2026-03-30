@@ -52,6 +52,26 @@ class MainActivity : BaseActivity() {
         maybeOfferHomeScreenShortcut()
     }
 
+    override fun onResume() {
+        super.onResume()
+        updateUIBasedOnServiceState()
+    }
+
+    private fun updateUIBasedOnServiceState() {
+        val isRunning = NetworkStateService.isRunning
+        monitoringSwitch.setOnCheckedChangeListener(null)
+        monitoringSwitch.isChecked = isRunning
+        monitoringSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) startNetworkMonitoring() else stopNetworkMonitoring()
+        }
+        
+        if (isRunning) {
+            statusText.text = getString(R.string.status_running)
+        } else {
+            checkPermissions() // Toto nastaví "Ready" ak sú povolenia
+        }
+    }
+
     private fun initViews() {
         versionText = findViewById(R.id.versionText)
         statusText = findViewById(R.id.statusText)
@@ -59,9 +79,7 @@ class MainActivity : BaseActivity() {
 
         versionText.text = getAppVersionLabel()
 
-        monitoringSwitch.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) startNetworkMonitoring() else stopNetworkMonitoring()
-        }
+        updateUIBasedOnServiceState()
 
         setupBottomNavigation()
     }
