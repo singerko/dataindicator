@@ -39,6 +39,11 @@ class NetworkStateService : Service() {
         const val ACTION_STOP = "sk.dataindicator.action.STOP"
         /** Akcia pre znovu načítanie konfigurácie overlay. */
         const val ACTION_REFRESH_CONFIG = "sk.dataindicator.action.REFRESH_CONFIG"
+
+        /** Informácia, či služba aktuálne beží. */
+        @Volatile
+        var isRunning = false
+            private set
     }
     
     private lateinit var windowManager: WindowManager
@@ -57,6 +62,7 @@ class NetworkStateService : Service() {
      */
     override fun onCreate() {
         super.onCreate()
+        isRunning = true
         
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -74,6 +80,7 @@ class NetworkStateService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         when (intent?.action) {
             ACTION_START -> {
+                isRunning = true
                 startForeground(NOTIFICATION_ID, createNotification())
                 if (!isMonitoringActive) {
                     registerNetworkCallback()
@@ -86,6 +93,7 @@ class NetworkStateService : Service() {
                 }
             }
             ACTION_STOP -> {
+                isRunning = false
                 stopForeground(STOP_FOREGROUND_REMOVE)
                 isMonitoringActive = false
                 hideOverlay()
@@ -104,6 +112,7 @@ class NetworkStateService : Service() {
      */
     override fun onDestroy() {
         super.onDestroy()
+        isRunning = false
         unregisterNetworkCallback()
         hideOverlay()
     }

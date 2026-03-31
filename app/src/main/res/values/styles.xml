@@ -17,11 +17,32 @@
         <item name="android:layout_margin">@dimen/button_margin</item>
     </style>
 
-    <!-- Téma pre splash screen (bez action baru) -->
+    <!-- Štýl pre splash screen (bez action baru) -->
     <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/white</item>
     </style>
-</resources>
+
+    <!-- Base brand style (Using real Syne font) -->
+    <style name="BrandTextStyle">
+        <item name="android:textSize">42sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:fontFamily">@font/syne</item>
+    </style>
+
+    <!-- Štýl pre brand nápis Singer (ExtraBold / 800) -->
+    <style name="BrandTextStyle.Singer">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textFontWeight">800</item>
+        <item name="android:textColor">@color/brand_singer</item>
+    </style>
+
+    <!-- Štýl pre brand nápis Land (Regular / 400) -->
+    <style name="BrandTextStyle.Land">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textColor">@color/brand_land</item>
+    </style>
+    </resources>

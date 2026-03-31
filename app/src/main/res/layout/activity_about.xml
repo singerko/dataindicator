@@ -17,14 +17,45 @@
         android:gravity="center"
         android:padding="@dimen/padding_large">
 
-        <ImageView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo_data_indicator"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/app_name"
-            android:layout_marginBottom="@dimen/padding_medium" />
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/padding_large">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Singer"
+                    style="@style/BrandTextStyle.Singer"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Land"
+                    style="@style/BrandTextStyle.Land"
+                    android:textSize="28sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logo_subtitle"
+                android:textSize="10sp"
+                android:textColor="@color/colorSecondary"
+                android:textAllCaps="true"
+                android:letterSpacing="0.2"
+                android:layout_marginTop="-4dp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/aboutVersionText"
@@ -40,7 +71,10 @@
             android:text="@string/about_description"
             android:textSize="14sp"
             android:textColor="@color/colorSecondary"
-            android:gravity="center" />
+            android:gravity="center"
+            android:autoLink="web"
+            android:textColorLink="@color/colorPrimary"
+            android:linksClickable="true" />
 
     </LinearLayout>
 

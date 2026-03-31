@@ -85,7 +85,7 @@
     <!-- About screen -->
     <string name="about_title">About</string>
     <string name="about_button">About</string>
-    <string name="about_description">Visual indicator of internet connection type.\n🟢 WiFi  🔴 Mobile data  ⚫ No internet</string>
+    <string name="about_description">Visual indicator of internet connection type.\n🟢 WiFi  🔴 Mobile data  ⚫ No internet\n\n© Martin (singer) Spevák\n\nOpen source released under MIT License\n\nwww.singerland.com\ngithub.com/singerko/dataindicator</string>
 
     <!-- Podpis loga (zodpovedá textu v SVG) -->
     <string name="logo_subtitle">data indicator</string>
